@@ -63,7 +63,10 @@
                         {{/if}}
                         
                         <div class="h-6 w-px bg-gray-300"></div>
-                        <span class="text-gray-600 text-sm"> {{user.name}}</span>
+                        <div class="flex items-center gap-2">
+                            <img src="{{user.avatar}}" alt="{{user.name}}" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-gray-600 text-sm">{{user.name}}</span>
+                        </div>
                         <span class="text-xs px-2 py-1 rounded-full 
                             {{#if (eq user.role "admin")}}bg-purple-100 text-purple-700
                             {{else if (eq user.role "creator")}}bg-pink-100 text-pink-700
