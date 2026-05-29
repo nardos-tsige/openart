@@ -34,16 +34,17 @@ The platform supports secure authentication, role-based access control, and a re
 
 # ✨ Key Features
 
-✅ User Authentication with JWT
-✅ Role-Based Access Control (Creator, Viewer, Admin)
-✅ Full CRUD Operations for Images
-✅ Like & Comment System
-✅ Category-Based Filtering
-✅ Search Functionality
-✅ Responsive UI with Tailwind CSS
-✅ Cloudinary Image Upload Integration
+* ✅ User Authentication with JWT
+* ✅ Role-Based Access Control (Creator, Viewer, Admin)
+* ✅ Full CRUD Operations for Images
+* ✅ Like & Comment System
+* ✅ Category-Based Filtering
+* ✅ Search Functionality
+* ✅ Responsive UI with Tailwind CSS
+* ✅ Cloudinary Image Upload Integration
 
 ---
+
 
 # 🛠 Tech Stack
 
