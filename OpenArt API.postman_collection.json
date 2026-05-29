@@ -1,0 +1,1590 @@
+{
+  "info": {
+    "_postman_id": "3ada4d2e-19b5-4dfa-9677-7e04cc00d046",
+    "name": "OpenArt API",
+    "description": "API collection for OpenArt image sharing platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38050186"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Creator\",\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"creator\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - User Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Test Creator\",\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"creator\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "305"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"131-k/gGoZ2ld9yP1i4ExyUT2P5rBjI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 07:02:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTkzYTIyMjBjNDZhOTM1NmQ5MTg0OCIsImlhdCI6MTc4MDAzODE3OCwiZXhwIjoxNzgwNjQyOTc4fQ.MFPbKth1q6rwsgVNQrkDaNUhkMbN8OXFnGITkiByd2E\",\n    \"user\": {\n        \"id\": \"6a193a2220c46a9356d91848\",\n        \"name\": \"Test Creator\",\n        \"email\": \"test@example.com\",\n        \"role\": \"creator\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - User Logged In",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "305"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"131-2wUOGUD+Wa+8GNs3pGuNGDa0Ok4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 07:30:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTkzYTIyMjBjNDZhOTM1NmQ5MTg0OCIsImlhdCI6MTc4MDAzOTg0NSwiZXhwIjoxNzgwNjQ0NjQ1fQ.1PvX0CbGdoSLv7ZYhlcCL9fKrqQh79zZqZRhbtEv0Hs\",\n    \"user\": {\n        \"id\": \"6a193a2220c46a9356d91848\",\n        \"name\": \"Test Creator\",\n        \"email\": \"test@example.com\",\n        \"role\": \"creator\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - User Profile",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "187"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"bb-WAKNvBXPsExRgLBR6YwvHa0xn5k\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 07:42:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"user\": {\n        \"id\": \"6a193a2220c46a9356d91848\",\n        \"name\": \"Test Creator\",\n        \"email\": \"test@example.com\",\n        \"role\": \"creator\",\n        \"bio\": \"\",\n        \"avatar\": \"🎨\",\n        \"createdAt\": \"2026-05-29T07:02:58.473Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "item": [
+        {
+          "name": "Get All Images",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/images",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - All Images",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/images",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "5999"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"176f-FsnM6AsiI5JBp5p9QinREpFR0qI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 07:46:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 12,\n    \"total\": 24,\n    \"page\": 1,\n    \"pages\": 2,\n    \"images\": [\n        {\n            \"_id\": \"6a06cb59f4364d10d884adfd\",\n            \"title\": \"Textured Waves\",\n            \"description\": \"Combination of paint and texture\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&h=500&fit=crop\",\n            \"category\": \"Mixed Media\",\n            \"tags\": [\n                \"texture\",\n                \"waves\",\n                \"mixed media\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.447Z\",\n            \"updatedAt\": \"2026-05-15T07:29:29.447Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adfb\",\n            \"title\": \"Urban Collage\",\n            \"description\": \"Mixed media collage of city elements\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Mixed Media\",\n            \"tags\": [\n                \"collage\",\n                \"urban\",\n                \"mixed\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [\n                \"6a036d21396313937acac2f1\",\n                \"6a0700cd64d62580a2a0de6e\"\n            ],\n            \"likesCount\": 2,\n            \"views\": 6,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.259Z\",\n            \"updatedAt\": \"2026-05-15T11:29:03.208Z\",\n            \"__v\": 4\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adf9\",\n            \"title\": \"Mandala Pattern\",\n            \"description\": \"Intricate circular pattern design\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"mandala\",\n                \"pattern\",\n                \"symmetry\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.069Z\",\n            \"updatedAt\": \"2026-05-15T07:29:29.069Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf7\",\n            \"title\": \"Vintage Birds\",\n            \"description\": \"Detailed pen and ink bird illustrations\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"birds\",\n                \"vintage\",\n                \"ink\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.853Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.854Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf5\",\n            \"title\": \"Whimsical Forest\",\n            \"description\": \"Children's book style illustration\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"forest\",\n                \"whimsical\",\n                \"storybook\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.582Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.583Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf3\",\n            \"title\": \"Character Design\",\n            \"description\": \"Fantasy character concept art\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1563089145-599997674d42?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"character\",\n                \"fantasy\",\n                \"concept\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.403Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.403Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf1\",\n            \"title\": \"Floral Fantasy\",\n            \"description\": \"Botanical illustration with vibrant colors\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"flowers\",\n                \"botanical\",\n                \"vibrant\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 1,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.201Z\",\n            \"updatedAt\": \"2026-05-15T07:31:37.607Z\",\n            \"__v\": 2\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adef\",\n            \"title\": \"Abstract Flow\",\n            \"description\": \"Mixed media abstract expression\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"abstract\",\n                \"mixed media\",\n                \"flow\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.006Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.006Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb57f4364d10d884aded\",\n            \"title\": \"Autumn Forest\",\n            \"description\": \"Oil painting of fall colored trees\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"autumn\",\n                \"forest\",\n                \"oil\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:27.801Z\",\n            \"updatedAt\": \"2026-05-15T07:29:27.802Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb57f4364d10d884adeb\",\n            \"title\": \"Portrait of Grace\",\n            \"description\": \"Watercolor portrait with soft tones\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"portrait\",\n                \"watercolor\",\n                \"grace\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:27.582Z\",\n            \"updatedAt\": \"2026-05-15T07:29:27.582Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb57f4364d10d884ade9\",\n            \"title\": \"Sunflower Field\",\n            \"description\": \"Acrylic painting of golden sunflowers\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"sunflowers\",\n                \"field\",\n                \"acrylic\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:27.374Z\",\n            \"updatedAt\": \"2026-05-15T07:29:27.375Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb57f4364d10d884ade7\",\n            \"title\": \"Starry Night\",\n            \"description\": \"Oil painting of swirling night sky\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"oil\",\n                \"night\",\n                \"stars\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:27.055Z\",\n            \"updatedAt\": \"2026-05-15T07:29:27.056Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Images by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/images?category=Photography",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Photography"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Filtered by Category",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/images?category=Photography",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "Photography"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "3762"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"eb2-lhzaG32FPa285WRZtB126FlQBXM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:05:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 7,\n    \"total\": 7,\n    \"page\": 1,\n    \"pages\": 1,\n    \"images\": [\n        {\n            \"_id\": \"6a194686f3bb19a740aea3ed\",\n            \"title\": \"Test Artwork\",\n            \"description\": \"This is a test artwork description\",\n            \"imageUrl\": \"https://res.cloudinary.com/dhqxngu2h/image/upload/v1780041348/openart/uaf2vs3dqi0gptqsqoyi.jpg\",\n            \"publicId\": \"openart/uaf2vs3dqi0gptqsqoyi\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"nature\",\n                \"sunset\",\n                \"landscape\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a193a2220c46a9356d91848\",\n                \"name\": \"Updated Name\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [\n                \"6a193a2220c46a9356d91848\"\n            ],\n            \"likesCount\": 1,\n            \"views\": 1,\n            \"comments\": [\n                {\n                    \"user\": \"6a193a2220c46a9356d91848\",\n                    \"text\": \"This is a test comment\",\n                    \"_id\": \"6a1947def3bb19a740aea3f9\",\n                    \"createdAt\": \"2026-05-29T08:01:34.073Z\"\n                }\n            ],\n            \"createdAt\": \"2026-05-29T07:55:50.868Z\",\n            \"updatedAt\": \"2026-05-29T08:01:34.081Z\",\n            \"__v\": 2\n        },\n        {\n            \"_id\": \"6a06cb55f4364d10d884add9\",\n            \"title\": \"Waterfall Dream\",\n            \"description\": \"Cascading waterfall in lush green forest\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=500&h=500&fit=crop\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"waterfall\",\n                \"nature\",\n                \"forest\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:25.207Z\",\n            \"updatedAt\": \"2026-05-15T07:29:25.208Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb55f4364d10d884add7\",\n            \"title\": \"Desert Dunes\",\n            \"description\": \"Golden sand dunes under dramatic sky\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=500&h=500&fit=crop\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"desert\",\n                \"sand\",\n                \"landscape\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:25.018Z\",\n            \"updatedAt\": \"2026-05-15T07:29:25.019Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb54f4364d10d884add5\",\n            \"title\": \"City Lights\",\n            \"description\": \"Urban夜景 with glowing skyscrapers\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=500&h=500&fit=crop\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"city\",\n                \"night\",\n                \"urban\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:24.828Z\",\n            \"updatedAt\": \"2026-05-15T07:29:24.829Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb54f4364d10d884add3\",\n            \"title\": \"Ocean Waves\",\n            \"description\": \"Powerful waves crashing against coastal rocks\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=500&fit=crop\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"ocean\",\n                \"waves\",\n                \"coast\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:24.621Z\",\n            \"updatedAt\": \"2026-05-15T07:29:24.622Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb54f4364d10d884add1\",\n            \"title\": \"Forest Path\",\n            \"description\": \"Mystical morning light filtering through ancient trees\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&h=500&fit=crop\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"forest\",\n                \"nature\",\n                \"sunlight\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:24.442Z\",\n            \"updatedAt\": \"2026-05-15T07:29:24.443Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb54f4364d10d884adcf\",\n            \"title\": \"Mountain Sunset\",\n            \"description\": \"Beautiful golden hour over the mountains with dramatic clouds\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=500&fit=crop\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"nature\",\n                \"sunset\",\n                \"mountains\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:24.251Z\",\n            \"updatedAt\": \"2026-05-15T07:29:24.255Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Images with Pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/images?page=1&limit=6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "6"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Paginated Results",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/images?page=1&limit=6",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "6"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "3286"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"cd6-cpRvIGk7929CIXsHoZq3amQ5ufY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:07:16 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 6,\n    \"total\": 25,\n    \"page\": 1,\n    \"pages\": 5,\n    \"images\": [\n        {\n            \"_id\": \"6a194686f3bb19a740aea3ed\",\n            \"title\": \"Test Artwork\",\n            \"description\": \"This is a test artwork description\",\n            \"imageUrl\": \"https://res.cloudinary.com/dhqxngu2h/image/upload/v1780041348/openart/uaf2vs3dqi0gptqsqoyi.jpg\",\n            \"publicId\": \"openart/uaf2vs3dqi0gptqsqoyi\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"nature\",\n                \"sunset\",\n                \"landscape\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a193a2220c46a9356d91848\",\n                \"name\": \"Updated Name\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [\n                \"6a193a2220c46a9356d91848\"\n            ],\n            \"likesCount\": 1,\n            \"views\": 1,\n            \"comments\": [\n                {\n                    \"user\": \"6a193a2220c46a9356d91848\",\n                    \"text\": \"This is a test comment\",\n                    \"_id\": \"6a1947def3bb19a740aea3f9\",\n                    \"createdAt\": \"2026-05-29T08:01:34.073Z\"\n                }\n            ],\n            \"createdAt\": \"2026-05-29T07:55:50.868Z\",\n            \"updatedAt\": \"2026-05-29T08:01:34.081Z\",\n            \"__v\": 2\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adfd\",\n            \"title\": \"Textured Waves\",\n            \"description\": \"Combination of paint and texture\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&h=500&fit=crop\",\n            \"category\": \"Mixed Media\",\n            \"tags\": [\n                \"texture\",\n                \"waves\",\n                \"mixed media\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.447Z\",\n            \"updatedAt\": \"2026-05-15T07:29:29.447Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adfb\",\n            \"title\": \"Urban Collage\",\n            \"description\": \"Mixed media collage of city elements\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Mixed Media\",\n            \"tags\": [\n                \"collage\",\n                \"urban\",\n                \"mixed\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [\n                \"6a036d21396313937acac2f1\",\n                \"6a0700cd64d62580a2a0de6e\"\n            ],\n            \"likesCount\": 2,\n            \"views\": 6,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.259Z\",\n            \"updatedAt\": \"2026-05-15T11:29:03.208Z\",\n            \"__v\": 4\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adf9\",\n            \"title\": \"Mandala Pattern\",\n            \"description\": \"Intricate circular pattern design\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"mandala\",\n                \"pattern\",\n                \"symmetry\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.069Z\",\n            \"updatedAt\": \"2026-05-15T07:29:29.069Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf7\",\n            \"title\": \"Vintage Birds\",\n            \"description\": \"Detailed pen and ink bird illustrations\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"birds\",\n                \"vintage\",\n                \"ink\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.853Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.854Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf5\",\n            \"title\": \"Whimsical Forest\",\n            \"description\": \"Children's book style illustration\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"forest\",\n                \"whimsical\",\n                \"storybook\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.582Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.583Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Search Images",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/images?search=nature",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "nature"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Search Results",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/images?search=nature",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "nature"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "6231"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1857-p0br0Cf/TYCGF15VVfFOaFrZeJA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:06:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"count\": 12,\n    \"total\": 25,\n    \"page\": 1,\n    \"pages\": 3,\n    \"images\": [\n        {\n            \"_id\": \"6a194686f3bb19a740aea3ed\",\n            \"title\": \"Test Artwork\",\n            \"description\": \"This is a test artwork description\",\n            \"imageUrl\": \"https://res.cloudinary.com/dhqxngu2h/image/upload/v1780041348/openart/uaf2vs3dqi0gptqsqoyi.jpg\",\n            \"publicId\": \"openart/uaf2vs3dqi0gptqsqoyi\",\n            \"category\": \"Photography\",\n            \"tags\": [\n                \"nature\",\n                \"sunset\",\n                \"landscape\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a193a2220c46a9356d91848\",\n                \"name\": \"Updated Name\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [\n                \"6a193a2220c46a9356d91848\"\n            ],\n            \"likesCount\": 1,\n            \"views\": 1,\n            \"comments\": [\n                {\n                    \"user\": \"6a193a2220c46a9356d91848\",\n                    \"text\": \"This is a test comment\",\n                    \"_id\": \"6a1947def3bb19a740aea3f9\",\n                    \"createdAt\": \"2026-05-29T08:01:34.073Z\"\n                }\n            ],\n            \"createdAt\": \"2026-05-29T07:55:50.868Z\",\n            \"updatedAt\": \"2026-05-29T08:01:34.081Z\",\n            \"__v\": 2\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adfd\",\n            \"title\": \"Textured Waves\",\n            \"description\": \"Combination of paint and texture\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&h=500&fit=crop\",\n            \"category\": \"Mixed Media\",\n            \"tags\": [\n                \"texture\",\n                \"waves\",\n                \"mixed media\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.447Z\",\n            \"updatedAt\": \"2026-05-15T07:29:29.447Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adfb\",\n            \"title\": \"Urban Collage\",\n            \"description\": \"Mixed media collage of city elements\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Mixed Media\",\n            \"tags\": [\n                \"collage\",\n                \"urban\",\n                \"mixed\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [\n                \"6a036d21396313937acac2f1\",\n                \"6a0700cd64d62580a2a0de6e\"\n            ],\n            \"likesCount\": 2,\n            \"views\": 6,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.259Z\",\n            \"updatedAt\": \"2026-05-15T11:29:03.208Z\",\n            \"__v\": 4\n        },\n        {\n            \"_id\": \"6a06cb59f4364d10d884adf9\",\n            \"title\": \"Mandala Pattern\",\n            \"description\": \"Intricate circular pattern design\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"mandala\",\n                \"pattern\",\n                \"symmetry\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:29.069Z\",\n            \"updatedAt\": \"2026-05-15T07:29:29.069Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf7\",\n            \"title\": \"Vintage Birds\",\n            \"description\": \"Detailed pen and ink bird illustrations\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"birds\",\n                \"vintage\",\n                \"ink\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.853Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.854Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf5\",\n            \"title\": \"Whimsical Forest\",\n            \"description\": \"Children's book style illustration\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"forest\",\n                \"whimsical\",\n                \"storybook\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.582Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.583Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf3\",\n            \"title\": \"Character Design\",\n            \"description\": \"Fantasy character concept art\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1563089145-599997674d42?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"character\",\n                \"fantasy\",\n                \"concept\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.403Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.403Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adf1\",\n            \"title\": \"Floral Fantasy\",\n            \"description\": \"Botanical illustration with vibrant colors\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=500&h=500&fit=crop\",\n            \"category\": \"Illustration\",\n            \"tags\": [\n                \"flowers\",\n                \"botanical\",\n                \"vibrant\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 1,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.201Z\",\n            \"updatedAt\": \"2026-05-15T07:31:37.607Z\",\n            \"__v\": 2\n        },\n        {\n            \"_id\": \"6a06cb58f4364d10d884adef\",\n            \"title\": \"Abstract Flow\",\n            \"description\": \"Mixed media abstract expression\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"abstract\",\n                \"mixed media\",\n                \"flow\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:28.006Z\",\n            \"updatedAt\": \"2026-05-15T07:29:28.006Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb57f4364d10d884aded\",\n            \"title\": \"Autumn Forest\",\n            \"description\": \"Oil painting of fall colored trees\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"autumn\",\n                \"forest\",\n                \"oil\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:27.801Z\",\n            \"updatedAt\": \"2026-05-15T07:29:27.802Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb57f4364d10d884adeb\",\n            \"title\": \"Portrait of Grace\",\n            \"description\": \"Watercolor portrait with soft tones\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"portrait\",\n                \"watercolor\",\n                \"grace\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:27.582Z\",\n            \"updatedAt\": \"2026-05-15T07:29:27.582Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a06cb57f4364d10d884ade9\",\n            \"title\": \"Sunflower Field\",\n            \"description\": \"Acrylic painting of golden sunflowers\",\n            \"imageUrl\": \"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&h=500&fit=crop\",\n            \"category\": \"Painting\",\n            \"tags\": [\n                \"sunflowers\",\n                \"field\",\n                \"acrylic\"\n            ],\n            \"creator\": {\n                \"_id\": \"6a036d21396313937acac2f1\",\n                \"name\": \"Adonay Chilotu\",\n                \"avatar\": \"🎨\"\n            },\n            \"likes\": [],\n            \"likesCount\": 0,\n            \"views\": 0,\n            \"comments\": [],\n            \"createdAt\": \"2026-05-15T07:29:27.374Z\",\n            \"updatedAt\": \"2026-05-15T07:29:27.375Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Image",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images",
+                "6a194686f3bb19a740aea3ed"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Single Image",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images",
+                    "6a194686f3bb19a740aea3ed"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "602"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"25a-/gmn7eg3HK4wDODBFksydtbtuzs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 07:58:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"image\": {\n        \"_id\": \"6a194686f3bb19a740aea3ed\",\n        \"title\": \"Test Artwork\",\n        \"description\": \"This is a test artwork description\",\n        \"imageUrl\": \"https://res.cloudinary.com/dhqxngu2h/image/upload/v1780041348/openart/uaf2vs3dqi0gptqsqoyi.jpg\",\n        \"publicId\": \"openart/uaf2vs3dqi0gptqsqoyi\",\n        \"category\": \"Photography\",\n        \"tags\": [\n            \"nature\",\n            \"sunset\",\n            \"landscape\"\n        ],\n        \"creator\": {\n            \"_id\": \"6a193a2220c46a9356d91848\",\n            \"name\": \"Test Creator\",\n            \"email\": \"test@example.com\",\n            \"bio\": \"\",\n            \"avatar\": \"🎨\"\n        },\n        \"likes\": [],\n        \"likesCount\": 0,\n        \"views\": 1,\n        \"comments\": [],\n        \"createdAt\": \"2026-05-29T07:55:50.868Z\",\n        \"updatedAt\": \"2026-05-29T07:58:14.894Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Upload Image",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "/C:/Users/ADU/Downloads/ahmetyuksek-monk-10278772_1920.jpg"
+                },
+                {
+                  "key": "title",
+                  "value": "Test Artwork",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "This is a test artwork description",
+                  "type": "text"
+                },
+                {
+                  "key": "category",
+                  "value": "Photography",
+                  "type": "text"
+                },
+                {
+                  "key": "tags",
+                  "value": "nature, sunset, landscape",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/images/upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images",
+                "upload"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Image Uploaded",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": "/C:/Users/ADU/Downloads/ahmetyuksek-monk-10278772_1920.jpg"
+                    },
+                    {
+                      "key": "title",
+                      "value": "Test Artwork",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "This is a test artwork description",
+                      "type": "text"
+                    },
+                    {
+                      "key": "category",
+                      "value": "Photography",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "nature, sunset, landscape",
+                      "type": "text"
+                    }
+                  ],
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/images/upload",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images",
+                    "upload"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "520"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"208-1SF/hryuFJWHUhsd1UsuscTpMZI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 07:55:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"image\": {\n        \"title\": \"Test Artwork\",\n        \"description\": \"This is a test artwork description\",\n        \"imageUrl\": \"https://res.cloudinary.com/dhqxngu2h/image/upload/v1780041348/openart/uaf2vs3dqi0gptqsqoyi.jpg\",\n        \"publicId\": \"openart/uaf2vs3dqi0gptqsqoyi\",\n        \"category\": \"Photography\",\n        \"tags\": [\n            \"nature\",\n            \"sunset\",\n            \"landscape\"\n        ],\n        \"creator\": \"6a193a2220c46a9356d91848\",\n        \"likes\": [],\n        \"likesCount\": 0,\n        \"views\": 0,\n        \"_id\": \"6a194686f3bb19a740aea3ed\",\n        \"comments\": [],\n        \"createdAt\": \"2026-05-29T07:55:50.868Z\",\n        \"updatedAt\": \"2026-05-29T07:55:50.879Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Image",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Title\",\n  \"description\": \"Updated description\",\n  \"tags\": \"updated, new, tags\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images",
+                "6a194686f3bb19a740aea3ed"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Image Updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Updated Title\",\n  \"description\": \"Updated description\",\n  \"tags\": \"updated, new, tags\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images",
+                    "6a194686f3bb19a740aea3ed"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "664"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"298-i21DGIRXlWekVJeVFNHppNl1b+E\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:09:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"image\": {\n        \"_id\": \"6a194686f3bb19a740aea3ed\",\n        \"title\": \"Updated Title\",\n        \"description\": \"Updated description\",\n        \"imageUrl\": \"https://res.cloudinary.com/dhqxngu2h/image/upload/v1780041348/openart/uaf2vs3dqi0gptqsqoyi.jpg\",\n        \"publicId\": \"openart/uaf2vs3dqi0gptqsqoyi\",\n        \"category\": \"Photography\",\n        \"tags\": [\n            \"updated\",\n            \"new\",\n            \"tags\"\n        ],\n        \"creator\": \"6a193a2220c46a9356d91848\",\n        \"likes\": [\n            \"6a193a2220c46a9356d91848\"\n        ],\n        \"likesCount\": 1,\n        \"views\": 1,\n        \"comments\": [\n            {\n                \"user\": \"6a193a2220c46a9356d91848\",\n                \"text\": \"This is a test comment\",\n                \"_id\": \"6a1947def3bb19a740aea3f9\",\n                \"createdAt\": \"2026-05-29T08:01:34.073Z\"\n            }\n        ],\n        \"createdAt\": \"2026-05-29T07:55:50.868Z\",\n        \"updatedAt\": \"2026-05-29T08:09:08.179Z\",\n        \"__v\": 3\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Image",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images",
+                "6a194686f3bb19a740aea3ed"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Image Deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images",
+                    "6a194686f3bb19a740aea3ed"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "55"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37-aixXnJP33LhesYdvurb4aHm64z4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:10:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Image deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Like Image",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed/like",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images",
+                "6a194686f3bb19a740aea3ed",
+                "like"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Image Liked",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed/like",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images",
+                    "6a194686f3bb19a740aea3ed",
+                    "like"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "39"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"27-VryRUXKl0ISAsctP7WmcNxTPxoc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 07:59:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"likes\": 1,\n    \"liked\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Comment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"This is a test comment\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed/comment",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "images",
+                "6a194686f3bb19a740aea3ed",
+                "comment"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Comment Added",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"text\": \"This is a test comment\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/images/6a194686f3bb19a740aea3ed/comment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "images",
+                    "6a194686f3bb19a740aea3ed",
+                    "comment"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "166"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a6-qSPjaM/Eol9tfkzQpDLAUcJ6Lds\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:01:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"comment\": {\n        \"user\": \"6a193a2220c46a9356d91848\",\n        \"text\": \"This is a test comment\",\n        \"_id\": \"6a1947def3bb19a740aea3f9\",\n        \"createdAt\": \"2026-05-29T08:01:34.073Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - User Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/users/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "231"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"e7-HNDFqeKfo7Uz3N8TH+StK90QwiU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:10:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"user\": {\n        \"_id\": \"6a193a2220c46a9356d91848\",\n        \"name\": \"Updated Name\",\n        \"email\": \"test@example.com\",\n        \"role\": \"creator\",\n        \"bio\": \"This is my updated bio as an artist\",\n        \"avatar\": \"🎨\",\n        \"createdAt\": \"2026-05-29T07:02:58.473Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update User Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Name\",\n  \"bio\": \"This is my updated bio as an artist\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Profile Updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Updated Name\",\n  \"bio\": \"This is my updated bio as an artist\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/users/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "183"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"b7-t4vk0t3EvpnMqu5oA2ByQsA4KUo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:04:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"user\": {\n        \"id\": \"6a193a2220c46a9356d91848\",\n        \"name\": \"Updated Name\",\n        \"email\": \"test@example.com\",\n        \"role\": \"creator\",\n        \"bio\": \"This is my updated bio as an artist\",\n        \"avatar\": \"🎨\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "stats"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - User Stats",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/users/stats",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "stats"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "72"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"48-OPdtzA5dJIgkcWop0JXqDbs+5kg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:03:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"stats\": {\n        \"totalImages\": 1,\n        \"totalLikes\": 1,\n        \"totalViews\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "account"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - Account Deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/users/account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "account"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "57"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"39-k7LB9Ttrv4KiKX8rm7zfKT4Mg8E\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 29 May 2026 08:12:52 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account deleted successfully\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTkzYTIyMjBjNDZhOTM1NmQ5MTg0OCIsImlhdCI6MTc4MDAzOTg0NSwiZXhwIjoxNzgwNjQ0NjQ1fQ.1PvX0CbGdoSLv7ZYhlcCL9fKrqQh79zZqZRhbtEv0Hs"
+    }
+  ]
+}

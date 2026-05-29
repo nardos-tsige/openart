@@ -203,7 +203,7 @@ http://localhost:3000
 
 # 🧪 Postman Testing
 
-Import the `postman-collection.json` file into Postman to test all API endpoints.
+Import the `OpenArt API.postman_collection.json` file into Postman to test all API endpoints.
 
 After logging in, set the token variable for authenticated routes.
 
