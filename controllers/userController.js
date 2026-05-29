@@ -33,6 +33,7 @@ const updateProfile = async (req, res) => {
         
         if (name) user.name = name;
         if (bio !== undefined) user.bio = bio;
+        if (req.body.avatar) user.avatar = req.body.avatar;
         
         await user.save();
         

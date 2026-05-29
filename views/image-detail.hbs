@@ -113,9 +113,7 @@
             {{#each image.comments}}
             <div class="border-b border-gray-100 pb-3">
                 <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-r from-rose-pink to-soft-purple rounded-full flex items-center justify-center text-white text-sm">
-                        {{#if this.user.avatar}}{{this.user.avatar}}{{else}}👤{{/if}}
-                    </div>
+                    <img src="{{this.user.avatar}}" alt="{{this.user.name}}" class="w-8 h-8 rounded-full object-cover">
                     <div class="flex-1">
                         <p class="font-semibold text-gray-800 text-sm">{{this.user.name}}</p>
                         <p class="text-gray-600 text-sm">{{this.text}}</p>
