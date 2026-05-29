@@ -15,7 +15,7 @@
 # 👨‍💻 Team Members
 
 * **Nardos Tsige**
-* **Yeabsra **
+* **Yeabsira Ayele**
 
 ---
 
