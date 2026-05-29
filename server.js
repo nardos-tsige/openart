@@ -5,11 +5,11 @@ const dotenv = require('dotenv');
 const session = require('express-session');
 const passport = require('passport');
 const connectDB = require('./config/db');
-const MongoStore = require('connect-mongo');
+const { default: MongoStore } = require('connect-mongo');
 
-if (process.env.NODE_ENV === 'production') {
-    console.log = function() {}; // Optional: disable logs in production
-}
+// if (process.env.NODE_ENV === 'production') {
+//     console.log = function() {}; // Optional: disable logs in production
+// }
 
 // Load environment variables
 dotenv.config();
@@ -35,6 +35,10 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'secretkey',
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI,
+        ttl: 7 * 24 * 60 * 60
+    }),
     cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         secure: process.env.NODE_ENV === 'production',
@@ -154,8 +158,10 @@ app.use((err, req, res, next) => {
     `);
 });
 
-// Start server
-if (process.env.NODE_ENV !== 'production') {
+// Start server only if not on Vercel
+const isVercel = !!process.env.VERCEL;
+
+if (!isVercel) {
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
         console.log(`🚀 Server running on http://localhost:${PORT}`);
