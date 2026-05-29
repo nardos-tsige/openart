@@ -1,0 +1,288 @@
+
+<div class="max-w-4xl mx-auto px-4 py-8">
+    
+    <!-- Header -->
+    <div class="text-center mb-8 fade-in-up">
+        <h1 class="text-3xl md:text-4xl font-playfair font-bold text-gray-800 mb-2">
+            Share Your Artwork
+        </h1>
+        <p class="text-gray-500">Let the world see your creative vision</p>
+    </div>
+    
+    <!-- Upload Card -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-in-up" style="animation-delay: 0.1s">
+        
+        <form id="uploadForm" enctype="multipart/form-data">
+            <!-- Drag & Drop Zone -->
+            <div class="p-8">
+                <div id="dropZone" 
+                     class="drag-drop-zone border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center cursor-pointer hover:border-rose-pink transition-all">
+                    <input type="file" id="imageInput" name="image" accept="image/*" class="hidden">
+                    
+                    <div id="uploadPrompt">
+                        <div class="text-6xl mb-4">📸</div>
+                        <p class="text-gray-600 text-lg mb-2">Drag & drop your image here</p>
+                        <p class="text-gray-400 text-sm mb-4">or click to browse</p>
+                        <button type="button" id="browseBtn" class="px-6 py-2 gradient-btn text-white rounded-full text-sm">
+                            Choose File
+                        </button>
+                        <p class="text-gray-400 text-xs mt-4">Supported: JPG, PNG, WEBP (Max 10MB)</p>
+                    </div>
+                    
+                    <div id="imagePreview" class="hidden">
+                        <img id="previewImg" src="" alt="Preview" class="max-h-64 mx-auto rounded-lg mb-3">
+                        <p id="fileName" class="text-gray-600 text-sm mb-2"></p>
+                        <button type="button" id="changeImageBtn" class="text-rose-pink text-sm hover:underline">
+                            Change image
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Details Form -->
+            <div class="p-8 pt-0 border-t border-gray-100">
+                <!-- Title -->
+                <div class="mb-5">
+                    <label class="block text-gray-700 font-semibold mb-2">Title *</label>
+                    <input type="text" id="title" name="title" required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-pink focus:border-transparent transition"
+                           placeholder="e.g., 'Sunset Dreams'">
+                </div>
+                
+                <!-- Description -->
+                <div class="mb-5">
+                    <label class="block text-gray-700 font-semibold mb-2">Description / Story</label>
+                    <textarea id="description" name="description" rows="4"
+                              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-pink focus:border-transparent transition"
+                              placeholder="Tell the story behind your artwork..."></textarea>
+                </div>
+                
+                <!-- Category / Tags -->
+                <div class="mb-5">
+                    <label class="block text-gray-700 font-semibold mb-2">Category</label>
+                    <select id="category" name="category"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-pink focus:border-transparent transition">
+                        <option value="Photography">📷 Photography</option>
+                        <option value="Digital Art">🎨 Digital Art</option>
+                        <option value="Painting">🖌️ Painting</option>
+                        <option value="Illustration">✏️ Illustration</option>
+                        <option value="Sculpture">🗿 Sculpture</option>
+                        <option value="Mixed Media">🎭 Mixed Media</option>
+                    </select>
+                </div>
+                
+                <!-- Tags -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Tags</label>
+                    <input type="text" id="tags" name="tags"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-pink focus:border-transparent transition"
+                           placeholder="e.g., nature, abstract, portrait (comma separated)">
+                    <p class="text-xs text-gray-400 mt-1">Separate tags with commas</p>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="flex gap-4">
+                    <button type="submit" 
+                            id="submitBtn"
+                            class="flex-1 gradient-btn text-white py-3 rounded-xl font-semibold shadow-lg transition-all duration-300">
+                        Publish Artwork ✨
+                    </button>
+                    <a href="/dashboard" 
+                       class="px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition">
+                        Cancel
+                    </a>
+                </div>
+                
+                <!-- Message Display -->
+                <div id="uploadMessage" class="hidden mt-4 p-3 rounded-lg"></div>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Tips Section -->
+    <div class="mt-8 bg-gradient-to-r from-rose-pink/5 to-soft-purple/5 rounded-2xl p-6 fade-in-up" style="animation-delay: 0.2s">
+        <h3 class="font-semibold text-gray-800 mb-3">💡 Tips for better engagement</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="flex items-start gap-2">
+                <span class="text-rose-pink">✨</span>
+                <span class="text-gray-600">Use high-quality, well-lit images</span>
+            </div>
+            <div class="flex items-start gap-2">
+                <span class="text-rose-pink">📝</span>
+                <span class="text-gray-600">Write compelling descriptions</span>
+            </div>
+            <div class="flex items-start gap-2">
+                <span class="text-rose-pink">🏷️</span>
+                <span class="text-gray-600">Add relevant tags for discoverability</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // DOM Elements
+    const dropZone = document.getElementById('dropZone');
+    const imageInput = document.getElementById('imageInput');
+    const browseBtn = document.getElementById('browseBtn');
+    const uploadPrompt = document.getElementById('uploadPrompt');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    const fileName = document.getElementById('fileName');
+    const changeImageBtn = document.getElementById('changeImageBtn');
+    const uploadForm = document.getElementById('uploadForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const uploadMessage = document.getElementById('uploadMessage');
+    
+    let selectedFile = null;
+    
+    // Browse button click
+    if (browseBtn) {
+        browseBtn.addEventListener('click', () => {
+            imageInput.click();
+        });
+    }
+    
+    // Change image button
+    if (changeImageBtn) {
+        changeImageBtn.addEventListener('click', () => {
+            imageInput.click();
+        });
+    }
+    
+    // File input change
+    imageInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+            handleFile(e.target.files[0]);
+        }
+    });
+    
+    // Drag & drop events
+    if (dropZone) {
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
+        
+        dropZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+    }
+    
+    // Handle file selection
+    function handleFile(file) {
+        if (!file.type.startsWith('image/')) {
+            showMessage('Please select an image file (JPG, PNG, WEBP)', 'error');
+            return;
+        }
+        
+        if (file.size > 10 * 1024 * 1024) {
+            showMessage('File too large! Maximum size is 10MB', 'error');
+            return;
+        }
+        
+        selectedFile = file;
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            fileName.textContent = file.name;
+            uploadPrompt.classList.add('hidden');
+            imagePreview.classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+        
+        hideMessage();
+    }
+    
+    // Form submission
+    uploadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const title = document.getElementById('title').value.trim();
+        const description = document.getElementById('description').value.trim();
+        const category = document.getElementById('category').value;
+        const tagsInput = document.getElementById('tags').value;
+        
+        if (!title) {
+            showMessage('Please enter a title for your artwork', 'error');
+            return;
+        }
+        
+        if (!selectedFile) {
+            showMessage('Please select an image to upload', 'error');
+            return;
+        }
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Uploading... 🚀';
+        
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('category', category);
+        formData.append('tags', tagsInput);
+        
+        const token = localStorage.getItem('token');
+        
+        if (!token) {
+            showMessage('Please login to upload artwork', 'error');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Publish Artwork ✨';
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 1500);
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/images/upload', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                showMessage('✅ Artwork published successfully! Redirecting...', 'success');
+                setTimeout(() => {
+                    window.location.href = '/dashboard';
+                }, 1500);
+            } else {
+                showMessage(data.message || '❌ Upload failed. Please try again.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Publish Artwork ✨';
+            }
+        } catch (error) {
+            showMessage('❌ Network error. Please check your connection.', 'error');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Publish Artwork ✨';
+        }
+    });
+    
+    function showMessage(msg, type) {
+        uploadMessage.textContent = msg;
+        uploadMessage.classList.remove('hidden');
+        if (type === 'success') {
+            uploadMessage.classList.add('bg-green-100', 'text-green-700', 'border', 'border-green-200');
+        } else {
+            uploadMessage.classList.add('bg-red-100', 'text-red-700', 'border', 'border-red-200');
+        }
+    }
+    
+    function hideMessage() {
+        uploadMessage.classList.add('hidden');
+    }
+</script>

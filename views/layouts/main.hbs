@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenArt - {{title}}</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Tailwind Config Override -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'rose-pink': '#ec4899',
+                        'soft-purple': '#8b5cf6',
+                        'warm-bg': '#fdf8f5',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-warm-bg">
+    
+    <!-- Glassmorphism Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="text-2xl font-bold bg-gradient-to-r from-rose-pink to-soft-purple bg-clip-text text-transparent font-poppins">
+                    <a href="/">🎨 OpenArt</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-rose-pink transition duration-300 font-medium">Home</a>
+                    
+                    {{#if user}}
+                        <a href="/dashboard" class="text-gray-700 hover:text-rose-pink transition duration-300 font-medium">Dashboard</a>
+                        
+                        {{#if (eq user.role "creator")}}
+                            <a href="/upload" class="text-gray-700 hover:text-rose-pink transition duration-300 font-medium">Upload</a>
+                        {{/if}}
+                        
+                        {{#if (eq user.role "admin")}}
+                            <a href="/upload" class="text-gray-700 hover:text-rose-pink transition duration-300 font-medium">Upload</a>
+                        {{/if}}
+                        
+                        <div class="h-6 w-px bg-gray-300"></div>
+                        <span class="text-gray-600 text-sm"> {{user.name}}</span>
+                        <span class="text-xs px-2 py-1 rounded-full 
+                            {{#if (eq user.role "admin")}}bg-purple-100 text-purple-700
+                            {{else if (eq user.role "creator")}}bg-pink-100 text-pink-700
+                            {{else}}bg-gray-100 text-gray-700{{/if}}">
+                            {{user.role}}
+                        </span>
+                        <button onclick="logout()" class="px-4 py-2 bg-red-500 text-white rounded-full text-sm hover:bg-red-600 transition">
+                            Logout
+                        </button>
+                    {{else}}
+                        <a href="/login" class="text-gray-700 hover:text-rose-pink transition duration-300">Login</a>
+                        <a href="/register" class="px-5 py-2 bg-gradient-to-r from-rose-pink to-soft-purple text-white rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            Register
+                        </a>
+                    {{/if}}
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
+                <a href="/" class="block text-gray-700 hover:text-rose-pink transition">Home</a>
+                
+                {{#if user}}
+                    <a href="/dashboard" class="block text-gray-700 hover:text-rose-pink transition">Dashboard</a>
+                    
+                    {{#if (eq user.role "creator")}}
+                        <a href="/upload" class="block text-gray-700 hover:text-rose-pink transition">Upload</a>
+                    {{/if}}
+                    
+                    {{#if (eq user.role "admin")}}
+                        <a href="/upload" class="block text-gray-700 hover:text-rose-pink transition">Upload</a>
+                    {{/if}}
+                    
+                    <div class="pt-2 border-t border-gray-200">
+                        <span class="block text-gray-600 text-sm">👋 {{user.name}} ({{user.role}})</span>
+                        <button onclick="logout()" class="mt-2 w-full text-left px-4 py-2 bg-red-500 text-white rounded-lg">
+                            Logout
+                        </button>
+                    </div>
+                {{else}}
+                    <a href="/login" class="block text-gray-700 hover:text-rose-pink transition">Login</a>
+                    <a href="/register" class="block text-center px-4 py-2 bg-gradient-to-r from-rose-pink to-soft-purple text-white rounded-full">Register</a>
+                {{/if}}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        {{{body}}}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/50 backdrop-blur-sm border-t border-gray-200 mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="text-3xl font-bold bg-gradient-to-r from-rose-pink to-soft-purple bg-clip-text text-transparent mb-4">
+                OpenArt
+            </div>
+            <p class="text-gray-500 mb-4">Uplifting women creators — one masterpiece at a time</p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-gray-400 hover:text-rose-pink transition">About</a>
+                <a href="#" class="text-gray-400 hover:text-rose-pink transition">Contact</a>
+                <a href="#" class="text-gray-400 hover:text-rose-pink transition">Privacy</a>
+                <a href="#" class="text-gray-400 hover:text-rose-pink transition">Terms</a>
+            </div>
+            <p class="text-gray-400 text-sm">© 2025 OpenArt. Empowering women through art.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle & Logout Script -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        function logout() {
+            localStorage.removeItem('token');
+            document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

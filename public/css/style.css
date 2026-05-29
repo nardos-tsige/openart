@@ -1,0 +1,177 @@
+/* Custom Styles for OpenArt */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #db2777, #7c3aed);
+}
+
+/* Glass morphism effect */
+.glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Image card styles */
+.art-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.art-card:hover {
+    transform: translateY(-8px);
+}
+
+.art-card:hover .art-overlay {
+    opacity: 1;
+}
+
+/* Image overlay for hover effects */
+.art-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Masonry grid layout */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: auto;
+}
+
+/* Gradient button hover effect */
+.gradient-btn {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    transition: all 0.3s ease;
+}
+
+.gradient-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.4);
+}
+
+/* Hero section gradient */
+.hero-gradient {
+    background: linear-gradient(135deg, #fdf8f5 0%, #fce7f3 50%, #f3e8ff 100%);
+}
+
+/* Input focus effects */
+.input-focus-effect:focus {
+    outline: none;
+    border-color: #ec4899;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+}
+
+/* Like button animation */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.like-btn:active {
+    animation: heartbeat 0.3s ease;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 3px solid rgba(236, 72, 153, 0.2);
+    border-top: 3px solid #ec4899;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Drag and drop zone */
+.drag-drop-zone {
+    border: 2px dashed #d1d5db;
+    transition: all 0.3s ease;
+}
+
+.drag-drop-zone.drag-over {
+    border-color: #ec4899;
+    background-color: rgba(236, 72, 153, 0.05);
+}
+
+/* Image preview container */
+.image-preview {
+    position: relative;
+    display: inline-block;
+}
+
+.image-preview img {
+    max-width: 200px;
+    border-radius: 12px;
+}
+
+.remove-preview {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .masonry-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}

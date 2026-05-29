@@ -1,0 +1,9 @@
+node_modules
+.git
+README.md
+.gitignore
+.env
+uploads/
+fix-likes.js
+clear-db.js
+*.log
