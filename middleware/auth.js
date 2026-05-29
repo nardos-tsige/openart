@@ -34,7 +34,6 @@ const protect = async (req, res, next) => {
         const userObject = user.toObject();
         userObject.id = user._id;
         req.user = userObject;
-        console.log('User:', req.user);
         if (!req.user) {
             return res.status(401).json({
                 success: false,
