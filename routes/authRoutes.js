@@ -16,7 +16,7 @@ router.get('/google',
     passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-router.get('/callback/google',
+router.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
         // Generate JWT token
