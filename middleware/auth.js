@@ -31,8 +31,10 @@ const protect = async (req, res, next) => {
         
         // Get user from database (exclude password)
         const user = await User.findById(decoded.id).select('-password');
-        req.user = user.toObject();
-        
+        const userObject = user.toObject();
+        userObject.id = user._id;
+        req.user = userObject;
+        console.log('User:', req.user);
         if (!req.user) {
             return res.status(401).json({
                 success: false,
