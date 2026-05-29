@@ -23,8 +23,8 @@ module.exports = function(passport) {
                     name: profile.displayName,
                     email: profile.emails[0].value,
                     password: Math.random().toString(36).slice(-16),
-                    role: 'viewer',
-                    avatar: '🎨',
+                    role: 'creator',
+                    avatar: '/default-avatar.png',
                     googleId: profile.id
                 });
                 console.log('✅ New user created:', user.name);
